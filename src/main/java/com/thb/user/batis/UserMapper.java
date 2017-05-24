@@ -1,8 +1,6 @@
 package com.thb.user.batis;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,4 +11,8 @@ import org.springframework.stereotype.Component;
 public interface UserMapper {
     @Select("SELECT * FROM USER WHERE id = #{id}")
     User findById(@Param("id") int id);
+
+    @Insert("INSERT INTO user (name, sex) VALUES (#{user.name}, #{user.sex})")
+    @Options(useGeneratedKeys = true, keyProperty = "user.id")
+    void insertUser(@Param("user") User user);
 }
