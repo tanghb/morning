@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Mapper
 @Component
 public interface UserMapper {
-    @Select("SELECT * FROM USER WHERE id = #{id}")
+    @Select("SELECT * FROM user WHERE id = #{id}")
     User findById(@Param("id") int id);
 
     @Insert("INSERT INTO user (name, sex) VALUES (#{user.name}, #{user.sex})")
