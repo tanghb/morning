@@ -18,7 +18,7 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/index.do", method = RequestMethod.GET)
     public @ResponseBody User index(@RequestParam int id) {
         return userMapper.findById(id);
     }
